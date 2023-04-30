@@ -69,4 +69,17 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  programs.kitty = {
+    enable = true;
+    theme = "Solarized Dark - Patched";
+    package =
+      pkgs.writeShellScriptBin "kitty" ''
+        #!/usr/bin/env sh
+
+        ${pkgs.nixgl.nixGLIntel}/bin/nixGLIntel ${pkgs.kitty}/bin/kitty "$@"
+        '';
+  };
+
+  imports = [ ./neovim.nix ];
 }
