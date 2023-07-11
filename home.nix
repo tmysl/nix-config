@@ -43,8 +43,7 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-    ".p10k.zsh".source = dotfiles/p10k.zsh;
-    ".zshrc".source = dotfiles/zshrc;
+    ".inputrc".source = dotfiles/inputrc;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
@@ -89,5 +88,8 @@
     terminal = "screen-256color";
   };
 
-  imports = [ ./neovim.nix ];
+  imports = [
+    ./neovim.nix
+    ./zsh.nix
+  ];
 }
