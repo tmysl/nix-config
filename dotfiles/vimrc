@@ -26,5 +26,8 @@ set hlsearch
 " beginning of line
 set backspace=indent,eol,start
 
+" Turn off mouse interactions
+set mouse=
+
 " Set up vim-slime for use within tmux
 let g:slime_target="tmux"
