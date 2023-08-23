@@ -17,8 +17,6 @@ set nu
 
 " Set column for 80 character limit per line
 set colorcolumn=81
-" Set the color to one of the terminal theme colors
-highlight ColorColumn ctermbg=Red
 
 " Highlight search results and incremental search results
 set incsearch
