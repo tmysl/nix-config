@@ -14,6 +14,7 @@ in
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
       (import "${home-manager}/nixos") # Import home-manager nixos module
+      ../../modules/dropbox.nix
     ];
 
   # Bootloader.
@@ -95,8 +96,6 @@ in
       gnupg
       kate
       keepassxc
-      maestral
-      maestral-gui
       libreoffice-qt
     ];
   };
