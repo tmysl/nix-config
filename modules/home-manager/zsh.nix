@@ -8,11 +8,22 @@
     enableSyntaxHighlighting = true;
     enableVteIntegration = true;
     defaultKeymap = "viins";
-    initExtra = builtins.readFile ../../dotfiles/zshrc;
+    initExtra = ''
+      [[ ! -f ${../../dotfiles/p10k.zsh} ]] || source ${../../dotfiles/p10k.zsh}
+    '';
     shellAliases = {
       vim = "nvim";
     };
+    plugins = with pkgs; [
+      {
+        name = "powerlevel10k";
+        src = zsh-powerlevel10k;
+        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      }
+      {
+        name = "autocomplete";
+        src = zsh-autocomplete;
+      }
+    ];
   };
-
-  home.file.".p10k.zsh".source = ../../dotfiles/p10k.zsh;
 }

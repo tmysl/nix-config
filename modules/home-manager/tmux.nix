@@ -7,5 +7,6 @@
     customPaneNavigationAndResize = true;
     keyMode = "vi";
     terminal = "screen-256color";
+    shell = "${pkgs.zsh}/bin/zsh";
   };
 }

@@ -91,6 +91,7 @@ in
     isNormalUser = true;
     description = "Brandon Gottlob";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
     packages = with pkgs; [
       firefox
       gnupg
@@ -99,6 +100,8 @@ in
       libreoffice-qt
     ];
   };
+
+  programs.zsh.enable = true;
 
   home-manager.users.bgottlob = {
     imports = [
