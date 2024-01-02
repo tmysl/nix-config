@@ -3,7 +3,7 @@
 {
   programs.neovim = {
     enable = true;
-    extraConfig = builtins.readFile dotfiles/vimrc;
+    extraConfig = builtins.readFile ../../dotfiles/vimrc;
     plugins = with pkgs.vimPlugins; [
       auto-pairs
       csv-vim

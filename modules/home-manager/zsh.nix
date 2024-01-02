@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   programs.zsh = {
@@ -8,11 +8,11 @@
     enableSyntaxHighlighting = true;
     enableVteIntegration = true;
     defaultKeymap = "viins";
-    initExtra = builtins.readFile dotfiles/zshrc;
+    initExtra = builtins.readFile ../../dotfiles/zshrc;
     shellAliases = {
       vim = "nvim";
     };
   };
 
-  home.file.".p10k.zsh".source = dotfiles/p10k.zsh;
+  home.file.".p10k.zsh".source = ../../dotfiles/p10k.zsh;
 }

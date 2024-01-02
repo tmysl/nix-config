@@ -101,7 +101,10 @@ in
   };
 
   home-manager.users.bgottlob = {
-    imports = [ ../../home.nix ];
+    imports = [
+      ../../modules/home.nix
+      ../../modules/home-manager/workstation.nix
+    ];
   };
 
   # List packages installed in system profile. To search, run:
