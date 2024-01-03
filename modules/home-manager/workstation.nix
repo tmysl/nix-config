@@ -1,10 +1,10 @@
 { pkgs, ... }:
 
+let
+  x86_64Packages = if pkgs.system == "x86_64-linux" then [ pkgs.logseq ] else [];
+in
 {
-  home.packages = with pkgs; [
-    bat
-    logseq
-  ];
+  home.packages = with pkgs; [ bat ] ++ x86_64Packages;
 
   home.file = {
     ".inputrc".source = ../../dotfiles/inputrc;
