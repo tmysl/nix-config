@@ -3,18 +3,13 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-let
-  home-manager = builtins.fetchTarball {
-    url = "https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz";
-    sha256 = "16078fwcmqq41dqfnm124xxm8l6zykvqlj1kzgi0fvfil4y86slm";
-  };
-in
+
 {
   imports =
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
-      (import "${home-manager}/nixos") # Import home-manager nixos module
       ../../modules/dropbox.nix
+      ../../modules/logseq.nix
     ];
 
   # Bootloader.

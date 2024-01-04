@@ -1,10 +1,7 @@
 { pkgs, ... }:
 
-let
-  x86_64Packages = if pkgs.system == "x86_64-linux" then [ pkgs.logseq ] else [];
-in
 {
-  home.packages = with pkgs; [ bat ] ++ x86_64Packages;
+  home.packages = with pkgs; [ bat ];
 
   home.file = {
     ".inputrc".source = ../../dotfiles/inputrc;

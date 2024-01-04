@@ -2,10 +2,10 @@
   description = "Home Manager configuration of bgottlob";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.05";
+      url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -16,12 +16,30 @@
         modules = [ ./home.nix ];
       };
 
+      nixosConfigurations = {
+        johto = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/johto/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+            }
+          ];
+        };
+      };
+
       darwinConfigurations = {
         acro = nix-darwin.lib.darwinSystem {
           system = "aarch64-darwin";
           modules = [
-            ./machines/acro/darwin-configuration.nix
+            ./hosts/acro/darwin-configuration.nix
             home-manager.darwinModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+            }
           ];
         };
       };
