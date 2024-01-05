@@ -7,13 +7,9 @@
     ".inputrc".source = ../../dotfiles/inputrc;
   };
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
-
   imports = [
     ./kitty.nix
-    ./neovim.nix
+    ./vim.nix
     ./tmux.nix
     ./zsh.nix
   ];

@@ -12,9 +12,6 @@
       [[ ! -f ${../../dotfiles/p10k.zsh} ]] || source ${../../dotfiles/p10k.zsh}
       [[ ! -f "$HOME/.zshrc.system" ]] || source "$HOME/.zshrc.system"
     '';
-    shellAliases = {
-      vim = "nvim";
-    };
     plugins = with pkgs; [
       {
         name = "powerlevel10k";
