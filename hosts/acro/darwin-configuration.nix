@@ -3,6 +3,13 @@
 {
   services.nix-daemon.enable = true;
 
+  nix = {
+    package = pkgs.nixFlakes;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
+
   programs.zsh.enable = true;
 
   # Used for backwards compatibility, please read the changelog before changing.
