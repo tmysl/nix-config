@@ -1,9 +1,12 @@
 { config, pkgs, ... }:
 
 {
-  programs.vim = {
+  programs.neovim = {
     enable = true;
     defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
     extraConfig = builtins.readFile ../../dotfiles/vimrc;
     plugins = with pkgs.vimPlugins; [
       auto-pairs

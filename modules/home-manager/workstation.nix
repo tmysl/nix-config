@@ -22,8 +22,8 @@
   imports = [
     ./k8s.nix
     ./kitty.nix
+    ./neovim.nix
     ./tmux.nix
-    ./vim.nix
     ./zsh.nix
   ];
 }
