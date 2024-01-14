@@ -4,6 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      ../../modules/bluetooth.nix
       ../../modules/core-pkgs.nix
       ../../modules/enable-flakes.nix
       ../../modules/dropbox.nix
