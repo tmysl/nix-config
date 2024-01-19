@@ -10,7 +10,6 @@
       ../../modules/dropbox.nix
       ../../modules/gpg.nix
       ../../modules/locale.nix
-      ../../modules/logseq.nix
       ../../modules/plasma.nix
       ../../modules/printing.nix
       ../../modules/sound.nix
@@ -42,6 +41,7 @@
     imports = [
       ../../modules/home.nix
       ../../modules/home-manager/workstation.nix
+      ../../modules/home-manager/productivity.nix
     ];
   };
 

@@ -4,8 +4,6 @@
 {
   home.packages = with pkgs; [
     bat
-    keepassxc
-    libreoffice-qt
     jq
     yq
   ];
