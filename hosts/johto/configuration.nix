@@ -18,6 +18,12 @@
   boot = {
     initrd.luks.devices."luks-d46fbf02-4061-46b6-a3d1-87462667bf4d".device = "/dev/disk/by-uuid/d46fbf02-4061-46b6-a3d1-87462667bf4d";
 
+    kernelParams = [
+      # Fix for brightness buttons on 12th gen Intel Framework laptop
+      # Ref: https://dov.dev/blog/nixos-on-the-framework-12th-gen
+      "module_blacklist=hid_sensor_hub"
+    ];
+
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
