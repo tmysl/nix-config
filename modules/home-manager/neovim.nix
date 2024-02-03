@@ -11,13 +11,13 @@
     plugins = with pkgs.vimPlugins; [
       auto-pairs
       csv-vim
+      markdown-preview-nvim
       vim-abolish
       vim-colors-solarized
       vim-elixir
       vim-erlang-runtime
       vim-javascript
       vim-json
-      vim-markdown
       vim-nix
       vim-ruby
       vim-sleuth
