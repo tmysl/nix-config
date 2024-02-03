@@ -38,7 +38,7 @@
   users.users.bgottlob = {
     isNormalUser = true;
     description = "Brandon Gottlob";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "docker" "networkmanager" "wheel" ];
     shell = pkgs.zsh;
   };
   programs.zsh.enable = true;
@@ -52,6 +52,8 @@
   };
 
   services.pcscd.enable = true;
+
+  virtualisation.docker.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
