@@ -8,5 +8,8 @@
     keyMode = "vi";
     terminal = "screen-256color";
     shell = "${pkgs.zsh}/bin/zsh";
+    extraConfig = ''
+      set -s escape-time 0
+    '';
   };
 }
