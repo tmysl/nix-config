@@ -5,22 +5,24 @@ let
 
   vimPlugins = with pkgs.vimPlugins; [
     auto-pairs
-    csv-vim
     vim-abolish
     vim-colors-solarized
-    vim-elixir
-    vim-erlang-runtime
-    vim-javascript
-    vim-json
-    vim-nix
-    vim-ruby
     vim-sleuth
     vim-slime
     vim-speeddating
     vim-surround
-    vim-terraform
     vim-tmux-navigator
     vim-unimpaired
+  ];
+
+  vimSyntaxPlugins = with pkgs.vimPlugins; [
+    csv-vim
+    vim-elixir
+    vim-javascript
+    vim-json
+    vim-nix
+    vim-ruby
+    vim-terraform
     vim-yaml
     vimtex
   ];
@@ -33,7 +35,7 @@ in
       enable = true;
       defaultEditor = true;
       extraConfig = vimrcSrc;
-      plugins = vimPlugins;
+      plugins = vimPlugins ++ vimSyntaxPlugins;
     };
 
     programs.neovim = {
@@ -49,7 +51,21 @@ in
         markdown-preview-nvim
         {
           plugin = (nvim-treesitter.withPlugins (p: [
+            p.csv
+            p.elixir
+            p.erlang
+            p.heex
+            p.javascript
+            p.json
+            p.latex
+            p.lua
+            p.markdown
+            p.nix
+            p.ruby
             p.rust
+            p.terraform
+            p.toml
+            p.yaml
           ]));
           config = toLuaFile ../../dotfiles/nvim/plugins/treesitter.lua;
         }
