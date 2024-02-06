@@ -24,6 +24,8 @@ let
     vim-yaml
     vimtex
   ];
+
+  toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
 in
   {
     # Keep vim lighter than neovim
@@ -37,8 +39,29 @@ in
     programs.neovim = {
       enable = true;
       extraConfig = vimrcSrc;
+
+      extraPackages = with pkgs; [
+        cargo
+        rust-analyzer
+      ];
+
       plugins = with pkgs.vimPlugins; [
         markdown-preview-nvim
+        {
+          plugin = (nvim-treesitter.withPlugins (p: [
+            p.rust
+          ]));
+          config = toLuaFile ../../dotfiles/nvim/plugins/treesitter.lua;
+        }
+        {
+          plugin = nvim-lspconfig;
+          config = toLuaFile ../../dotfiles/nvim/plugins/lspconfig.lua;
+        }
+        nvim-cmp
+        cmp-nvim-lsp
+        cmp_luasnip
+        luasnip
+        friendly-snippets
       ] ++ vimPlugins;
     };
   }
