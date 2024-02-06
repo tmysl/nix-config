@@ -48,7 +48,7 @@ in
       ];
 
       plugins = with pkgs.vimPlugins; [
-        markdown-preview-nvim
+        # Treesitter and syntax highlighting
         {
           plugin = (nvim-treesitter.withPlugins (p: [
             p.csv
@@ -69,15 +69,27 @@ in
           ]));
           config = toLuaFile ../../dotfiles/nvim/plugins/treesitter.lua;
         }
+
+        # LSP, snippet, and autocompletion plugins
         {
           plugin = nvim-lspconfig;
           config = toLuaFile ../../dotfiles/nvim/plugins/lspconfig.lua;
         }
-        nvim-cmp
         cmp-nvim-lsp
         cmp_luasnip
-        luasnip
         friendly-snippets
+        luasnip
+        nvim-cmp
+
+        # Fuzzy finder
+        plenary-nvim # Dependency of telescope
+        {
+          plugin = telescope-nvim;
+          config = toLuaFile ../../dotfiles/nvim/plugins/telescope.lua;
+        }
+
+        # Other
+        markdown-preview-nvim
       ] ++ vimPlugins;
     };
   }
