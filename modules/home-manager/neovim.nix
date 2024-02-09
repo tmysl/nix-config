@@ -45,6 +45,7 @@ in
       extraPackages = with pkgs; [
         cargo
         rust-analyzer
+        rustc
       ];
 
       plugins = with pkgs.vimPlugins; [
