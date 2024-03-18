@@ -10,6 +10,6 @@
 
   programs.k9s = {
     enable = true;
-    skin = "solarized-dark";
+    skins.skin = "solarized-dark";
   };
 }

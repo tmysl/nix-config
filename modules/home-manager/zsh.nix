@@ -3,9 +3,9 @@
 {
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     enableCompletion = true;
-    enableSyntaxHighlighting = true;
+    syntaxHighlighting.enable = true;
     enableVteIntegration = true;
     defaultKeymap = "viins";
     initExtra = ''
