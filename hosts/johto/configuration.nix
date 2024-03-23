@@ -8,6 +8,7 @@
       ../../modules/core-pkgs.nix
       ../../modules/enable-flakes.nix
       ../../modules/dropbox.nix
+      ../../modules/gaming.nix
       ../../modules/gpg.nix
       ../../modules/locale.nix
       ../../modules/plasma.nix
