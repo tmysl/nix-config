@@ -27,6 +27,7 @@ let
     vimtex
   ];
 
+  toLuaStr = str: "lua << EOF\n${str}\nEOF\n";
   toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
 in
   {
@@ -43,9 +44,13 @@ in
       extraConfig = vimrcSrc;
 
       extraPackages = with pkgs; [
+        # Rust
         cargo
         rust-analyzer
         rustc
+
+        # Elixir
+        elixir-ls
       ];
 
       plugins = with pkgs.vimPlugins; [
@@ -74,7 +79,15 @@ in
         # LSP, snippet, and autocompletion plugins
         {
           plugin = nvim-lspconfig;
-          config = toLuaFile ../../dotfiles/nvim/plugins/lspconfig.lua;
+          config = (
+            (toLuaFile ../../dotfiles/nvim/plugins/lspconfig.lua) + (
+              toLuaStr ''
+                require'lspconfig'.elixirls.setup{
+                  cmd = { "${pkgs.elixir-ls}/bin/elixir-ls" };
+                }
+              ''
+            )
+          );
         }
         cmp-nvim-lsp
         cmp_luasnip
