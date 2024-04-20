@@ -14,6 +14,7 @@
       ../../modules/plasma.nix
       ../../modules/printing.nix
       ../../modules/sound.nix
+      <nixpkgs/nixos/modules/services/hardware/sane_extra_backends/brscan4.nix>
     ];
 
   boot = {
@@ -39,7 +40,7 @@
   users.users.bgottlob = {
     isNormalUser = true;
     description = "Brandon Gottlob";
-    extraGroups = [ "docker" "networkmanager" "wheel" ];
+    extraGroups = [ "docker" "networkmanager" "wheel" "scanner" "lp" ];
     shell = pkgs.zsh;
   };
   programs.zsh.enable = true;
@@ -63,4 +64,15 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
+
+  hardware = {
+    sane = {
+      enable = true;
+      brscan4 = {
+        enable = true;
+      };
+    };
+  };
+  # For scanner
+  nixpkgs.config.allowUnfree = true;
 }
