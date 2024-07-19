@@ -14,7 +14,6 @@
       ../../modules/plasma.nix
       ../../modules/printing.nix
       ../../modules/sound.nix
-      <nixpkgs/nixos/modules/services/hardware/sane_extra_backends/brscan4.nix>
     ];
 
   boot = {
@@ -75,4 +74,9 @@
   };
   # For scanner
   nixpkgs.config.allowUnfree = true;
+
+  # Needed for logseq
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-27.3.11"
+  ];
 }

@@ -6,9 +6,6 @@ syntax enable
 set background=dark
 colorscheme solarized
 
-" Use the terminal's background color
-highlight Normal ctermbg=none
-
 " Enable autoindentation
 set autoindent
 

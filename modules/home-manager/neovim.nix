@@ -1,12 +1,17 @@
 { config, pkgs, ... }:
 
 let
-  vimrcSrc = builtins.readFile ../../dotfiles/vimrc;
+  vimrcSrc = (builtins.readFile ../../dotfiles/vimrc) + ''
+    highlight Normal ctermbg=none
+  '';
+
+  nvimrcSrc = (builtins.readFile ../../dotfiles/vimrc) + ''
+    highlight Normal ctermbg=none guibg=none
+  '';
 
   vimPlugins = with pkgs.vimPlugins; [
     auto-pairs
     vim-abolish
-    vim-colors-solarized
     vim-sleuth
     vim-slime
     vim-speeddating
@@ -36,12 +41,14 @@ in
       enable = true;
       defaultEditor = true;
       extraConfig = vimrcSrc;
-      plugins = vimPlugins ++ vimSyntaxPlugins;
+      plugins = vimPlugins ++ vimSyntaxPlugins ++ [
+        pkgs.vimPlugins.vim-colors-solarized
+      ];
     };
 
     programs.neovim = {
       enable = true;
-      extraConfig = vimrcSrc;
+      extraConfig = nvimrcSrc;
 
       extraPackages = with pkgs; [
         # Rust
@@ -54,6 +61,7 @@ in
       ];
 
       plugins = with pkgs.vimPlugins; [
+        nvim-solarized-lua
         # Treesitter and syntax highlighting
         {
           plugin = (nvim-treesitter.withPlugins (p: [
