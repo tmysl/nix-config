@@ -3,6 +3,6 @@
 {
   programs.kitty = {
     enable = true;
-    theme = "Solarized Dark - Patched";
+    themeFile = "Solarized_Dark_-_Patched";
   };
 }
