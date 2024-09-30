@@ -10,6 +10,15 @@
 
   programs.k9s = {
     enable = true;
-    skins.skin = "solarized-dark";
+    skins = {
+      solarized_dark = ./solarized_dark_k9s.yaml;
+    };
+    settings = {
+      k9s =  {
+        ui = {
+          skin = "solarized_dark";
+        };
+      };
+    };
   };
 }
