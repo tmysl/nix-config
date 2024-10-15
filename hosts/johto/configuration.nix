@@ -75,7 +75,15 @@
   # For scanner
   nixpkgs.config.allowUnfree = true;
 
-  # Needed for logseq
+  # Electron 27 is needed to build logseq until this issue is fixed:
+  # https://github.com/NixOS/nixpkgs/issues/341683
+  nixpkgs.overlays = [(
+    final: prev: {
+      logseq = prev.logseq.override {
+        electron = prev.electron_27;
+      };
+    }
+  )];
   nixpkgs.config.permittedInsecurePackages = [
     "electron-27.3.11"
   ];
