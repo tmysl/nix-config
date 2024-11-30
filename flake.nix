@@ -22,6 +22,18 @@
       };
 
       nixosConfigurations = {
+        kanto = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/kanto/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+            }
+          ];
+        };
+
         johto = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
