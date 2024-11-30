@@ -8,7 +8,6 @@
       ../../modules/core-pkgs.nix
       ../../modules/enable-flakes.nix
       ../../modules/dropbox.nix
-      ../../modules/gaming.nix
       ../../modules/gpg.nix
       ../../modules/locale.nix
       ../../modules/plasma.nix
@@ -68,4 +67,10 @@
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "24.05"; # Did you read the comment?
+
+  # Electron 27 is needed to build logseq until this issue is fixed:
+  # https://github.com/NixOS/nixpkgs/issues/341683
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-27.3.11"
+  ];
 }
