@@ -11,7 +11,7 @@
       ../../modules/gaming.nix
       ../../modules/gpg.nix
       ../../modules/locale.nix
-      ../../modules/plasma6.nix
+      ../../modules/plasma.nix
       ../../modules/printing.nix
       ../../modules/sound.nix
     ];
