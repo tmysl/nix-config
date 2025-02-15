@@ -14,6 +14,7 @@
       ../../modules/plasma.nix
       ../../modules/printing.nix
       ../../modules/sound.nix
+      ../../modules/tailscale.nix
     ];
 
   boot = {
