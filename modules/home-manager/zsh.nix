@@ -8,7 +8,7 @@
     syntaxHighlighting.enable = true;
     enableVteIntegration = true;
     defaultKeymap = "viins";
-    initExtra = ''
+    initContent = ''
       [[ ! -f ${../../dotfiles/p10k.zsh} ]] || source ${../../dotfiles/p10k.zsh}
       [[ ! -f "$HOME/.zshrc.system" ]] || source "$HOME/.zshrc.system"
     '';
