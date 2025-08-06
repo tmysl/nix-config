@@ -6,6 +6,7 @@
   environment.systemPackages = with pkgs; [
     chromium
     firefox
+    flatpak
     git
     gparted
     parted

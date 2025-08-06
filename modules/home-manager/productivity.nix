@@ -3,10 +3,9 @@
 {
   home.packages = with pkgs; [
     slack
-    zoom
+    zoom-us
     ghostty
     _1password-gui 
-    zoom-us
     silver-searcher
     #libreoffice-qt
     #logseq
