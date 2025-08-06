@@ -32,13 +32,13 @@
   };
   programs.zsh.enable = true;
 
-  #home-manager.users.tmysl = {
-  #  imports = [
-  #    ../../modules/home.nix
-  #    ../../modules/home-manager/workstation.nix
-  #    ../../modules/home-manager/productivity.nix
-  #  ];
-  #};
+  home-manager.users.tmysl = {
+    imports = [
+      ../../modules/home.nix
+      ../../modules/home-manager/workstation.nix
+      ../../modules/home-manager/productivity.nix
+    ];
+  };
 
   services.pcscd.enable = true;
 

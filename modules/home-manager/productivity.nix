@@ -2,9 +2,14 @@
 
 {
   home.packages = with pkgs; [
-    keepassxc
-    libreoffice-qt
-    logseq
+    slack
+    zoom
+    ghostty
+    _1password-gui 
+    zoom-us
+    silver-searcher
+    #libreoffice-qt
+    #logseq
   ];
 }
 
