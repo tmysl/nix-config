@@ -1,5 +1,5 @@
 {
-  description = "Home Manager configuration of bgottlob";
+  description = "Home Manager configuration of tmysl";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -17,7 +17,7 @@
 
   outputs = { nixpkgs, nix-darwin, home-manager, ... }:
   {
-      homeConfigurations."bgottlob" = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."tmysl" = home-manager.lib.homeManagerConfiguration {
         modules = [ ./home.nix ];
       };
 
@@ -34,10 +34,10 @@
           ];
         };
 
-        johto = nixpkgs.lib.nixosSystem {
+        framwork = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./hosts/johto/configuration.nix
+            ./hosts/framework/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
